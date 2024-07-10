@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import { Primary } from './components/primary';
+import { Secondary } from './components/secondary';
+import { Input } from './components/input';
 
 function App() {
   return (
@@ -17,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <Input/>
       </header>
     </div>
   );
