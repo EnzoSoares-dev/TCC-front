@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const config = ()=>{
     return axios.create({
-        baseURL:"http://localhost:9000",
+        baseURL:"https://tcc-api-94yj.onrender.com",
         timeout: 10000,
     });
 }
