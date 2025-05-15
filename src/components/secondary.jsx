@@ -1,7 +1,7 @@
 import { StyledSecondary } from "../styles/components/secondary";
 
-export const Secondary = ({content}) =>{
+export const Secondary = ({onClick, content, style}) =>{
     return(
-        <StyledSecondary>{content}</StyledSecondary>
+        <StyledSecondary style={style} onClick={onClick}>{content}</StyledSecondary>
     )
 }

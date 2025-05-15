@@ -1,6 +1,6 @@
 import { StyledPrimary } from "../styles/components/primary"
-export const Primary = ({content})=>{
+export const Primary = ({onClick,content, styles})=>{
     return(
-        <StyledPrimary>{content}</StyledPrimary>
+        <StyledPrimary style={styles} onClick={onClick}>{content}</StyledPrimary>
     )
 }
