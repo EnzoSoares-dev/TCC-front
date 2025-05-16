@@ -20,8 +20,8 @@ const Idioma = ({ index, setValor, valor }) => {
                             <h2>Idioma</h2>
                             <select name="nome" id="nome" onChange={handleInputChange} required>
                                 <option selected disabled value={""}>Selecione o idioma</option>
-                                <option value="portugues">Português</option>
-                                <option value="ingles">Inglês</option>
+                                <option value="português">Português</option>
+                                <option value="inglês">Inglês</option>
                                 <option value="espanhol">Espanhol</option>
                             </select>
                         </div>
@@ -29,8 +29,8 @@ const Idioma = ({ index, setValor, valor }) => {
                         <h2>Proeficiencia</h2>
                         <select name="fluencia" id="fluencia" onChange={handleInputChange} required>
                             <option selected disabled value={""}>Selecione o nível de proficiência</option>
-                            <option value="basico">Básico</option>
-                            <option value="intermediario">Intermediário</option>
+                            <option value="básico">Básico</option>
+                            <option value="intermediário">Intermediário</option>
                             <option value="avancado">Avançado</option>
                             <option value="fluente">Fluente</option>
                     </select>
