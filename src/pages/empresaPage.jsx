@@ -46,7 +46,7 @@ export const EmpresaHomePage = ()=>{
                 </div>
                 <div style={{backgroundColor:"#F5F5F5F5", padding:"1%"}}>
                     <h1>Vagas finalizadas</h1>
-                    {vagas[1].length>0? vagas[1].map((vaga,index)=>{return <h2 style={{cursor:"pointer"}} onClick={()=>{navigate(`/vaga/encerrada/${vaga._id}`)}}>{vaga.nome}</h2>}):"Não há vagas finalizadas  "}
+                    {vagas[1].length>0? vagas[1].map((vaga,index)=>{return <h2 style={{cursor:"pointer"}}>{vaga.nome}</h2>}):"Não há vagas finalizadas  "}
                 </div>
             </div>
         </div>
