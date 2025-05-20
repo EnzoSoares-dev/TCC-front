@@ -120,13 +120,14 @@ export const RegisterPage = ()=>{
 
     return(
         <div style={{display:"flex",backgroundColor:"#282c34", height:"100vh",margin:"0px 0px 0px 0px"}}>
-            <StyledLoginDiv margin={"13% 40% 15% 40%"}>
+            <StyledLoginDiv margin={"10% 40% 15% 40%"}>
             <StyledForm method="post">
                     <Input onChange={(e)=>{setNome(e.target.value)}} placeholder={"Nome"}/>
                     <Input onBlur={handleEmail} onChange={(e)=>{setEmail(e.target.value)}} placeholder={"Email"}/>
                     <Input onBlur={handlePassword} onChange={(e)=>{setPassword(e.target.value)}} type={"password"} placeholder={"Senha"}/>
                     <Input onBlur={handleConfirmPassword} onChange={(e)=>{setConfirmPassword(e.target.value)}} type={"password"} placeholder={"Confirme a senha"}/>
                     <Input onBlur={handleIdenfication} onChange={(e)=>{setIdentification(e.target.value)}} placeholder={`${isEmpresa?"CNPJ":"CPF"}`}/>
+                    <p style={{fontSize:"14px"}}>A senha deve possuir pelo menos: um caracter especial, uma letra maiúscula, uma letra minúscula, mínimo de 8 caracteres e máximo de 12</p>
                     <Primary onClick={handleRegister} content={"Cadastrar"}/>
             </StyledForm>
             <LinkButton onClick={()=>{setIsEmpresa(!isEmpresa)}} content={isEmpresa?"Sou candidato":"Sou empresa"}/>
