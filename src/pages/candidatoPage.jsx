@@ -33,7 +33,6 @@ export const CandidatoPage = () => {
                 setVagas(response.data)
             } catch (error) {
                 console.error("Erro ao buscar vagas:", error);
-                navigate("/login")
             }
         };
         fetchVagas();

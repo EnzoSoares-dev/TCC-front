@@ -110,7 +110,10 @@ export const RegisterPage = ()=>{
                 break;
             default:
                 response = await registerCandidato({nome:nome,email:email,senha:password,cpf:identification});
-                response.status === 200? navigate("/candidato") :alert(response.data.message);
+                if(response.status === 200){
+                    sessionStorage.setItem("token",response.data.token);
+                    navigate("/candidato")
+                }else{alert(response.data.message);}
                 break;
         }
     }
@@ -122,7 +125,7 @@ export const RegisterPage = ()=>{
                     <Input onChange={(e)=>{setNome(e.target.value)}} placeholder={"Nome"}/>
                     <Input onBlur={handleEmail} onChange={(e)=>{setEmail(e.target.value)}} placeholder={"Email"}/>
                     <Input onBlur={handlePassword} onChange={(e)=>{setPassword(e.target.value)}} type={"password"} placeholder={"Senha"}/>
-                    <Input onBlur={handleConfirmPassword} onChange={(e)=>{setConfirmPassword(e.target.value)}} placeholder={"Confirme a senha"}/>
+                    <Input onBlur={handleConfirmPassword} onChange={(e)=>{setConfirmPassword(e.target.value)}} type={"password"} placeholder={"Confirme a senha"}/>
                     <Input onBlur={handleIdenfication} onChange={(e)=>{setIdentification(e.target.value)}} placeholder={`${isEmpresa?"CNPJ":"CPF"}`}/>
                     <Primary onClick={handleRegister} content={"Cadastrar"}/>
             </StyledForm>
