@@ -138,15 +138,59 @@ export const CurriculoRegisterPage = () => {
                 certificados: certificados
             }
         }
+        if(encontrarCamposInvalidos(curriculo).length === 0){
+            try{
+                const response = await updateCandidato(token.id,curriculo,sessionStorage.getItem("token"));
+                if(response.status === 200){
+                    console.log("Curriculo atualizado com sucesso")
+                    navigate(-1)
+                }
+            }catch(e){}
+        }else{
+            alert("Há campos não preenchidos no curriculo");
+        }
 
-        try{
-            const response = await updateCandidato(token.id,curriculo,sessionStorage.getItem("token"));
-            if(response.status === 200){
-                console.log("Curriculo atualizado com sucesso")
-                navigate(-1)
-            }
-        }catch(e){}
     }
+
+    function encontrarCamposInvalidos(curriculo) {
+    const camposInvalidos = [];
+
+    if (!curriculo?.curriculo?.[0]) {
+        camposInvalidos.push("Estrutura principal do currículo inválida");
+        return camposInvalidos;
+    }
+
+    const curriculum = curriculo.curriculo[0];
+
+    // Verifica idiomas
+    if (curriculum.idiomas) {
+        curriculum.idiomas.forEach((idioma, index) => {
+            if (!idioma.nome) camposInvalidos.push(`idiomas[${index}].nome`);
+            if (!idioma.fluencia) camposInvalidos.push(`idiomas[${index}].fluencia`);
+        });
+    }
+
+    // Verifica experiências
+    if (curriculum.experiencias) {
+        curriculum.experiencias.forEach((exp, index) => {
+            if (!exp.empresa) camposInvalidos.push(`experiencias[${index}].empresa`);
+            if (!exp.cargo) camposInvalidos.push(`experiencias[${index}].cargo`);
+            if (!exp.descricao) camposInvalidos.push(`experiencias[${index}].descricao`);
+            if (!exp.data_inicio) camposInvalidos.push(`experiencias[${index}].data_inicio`);
+        });
+    }
+
+    // Verifica certificados
+    if (curriculum.certificados) {
+        curriculum.certificados.forEach((cert, index) => {
+            if (!cert.nome) camposInvalidos.push(`certificados[${index}].nome`);
+            if (!cert.descricao) camposInvalidos.push(`certificados[${index}].descricao`);
+            if (!cert.data_emissao) camposInvalidos.push(`certificados[${index}].data_emissao`);
+        });
+    }
+
+    return camposInvalidos;
+}
 
     useEffect(() => {
         const lastForm = document.querySelector('form > div:last-of-type');
