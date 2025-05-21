@@ -32,15 +32,17 @@ export const LoginPage = ()=>{
             if(response.status === 200){
                 sessionStorage.setItem("token",response.data.token);
                 navigate("/empresa")
+            }else{
+                alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
             }
-            alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
         }else{
             const response = await loginCandidato(email, password);
             if(response.status === 200){
                 sessionStorage.setItem("token",response.data.token);
                 navigate("/candidato")
+            }else{
+                alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
             }
-            alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
         }
     }
     return(
