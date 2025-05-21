@@ -28,13 +28,19 @@ export const LoginPage = ()=>{
     }
     const handleLogin = async ()=>{
         if(isEmpresa===true){  
-            const response = await loginEmpresa(email,password)
-            sessionStorage.setItem("token",response.data.token);
-            navigate("/empresa")
+            const response = await loginEmpresa(email,password);
+            if(response.status === 200){
+                sessionStorage.setItem("token",response.data.token);
+                navigate("/empresa")
+            }
+            alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
         }else{
             const response = await loginCandidato(email, password);
-            sessionStorage.setItem("token",response.data.token);
-            navigate("/candidato")
+            if(response.status === 200){
+                sessionStorage.setItem("token",response.data.token);
+                navigate("/candidato")
+            }
+            alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
         }
     }
     return(
