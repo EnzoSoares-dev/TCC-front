@@ -42,12 +42,15 @@ export const VagaPage = ()=>{
             <div style={{display:"flex", flexDirection:"row"}}>
                 <div style={{marginLeft:"12%", marginTop:"5%", backgroundColor:"#F5F5F5F5", paddingLeft:"40px", paddingRight:"20%"}}>
                     <h1>Candidatos:</h1>
-                    {vaga.candidatos && vaga.candidatos.map((candidato,index)=>(
+                    {vaga.candidatos.length> 0
+                    ?vaga.candidatos && vaga.candidatos.map((candidato,index)=>(
                         <div key={index}>
                             <h2>{candidato.nomeCandidato}</h2>
                             <h2>{candidato.etapaVigente}</h2>
                         </div>
-                    ))}
+                    ))
+                    :<p>Não há candidatos cadastrados</p>
+                    }
                 </div>
                 <div style={{marginLeft:"12%", marginTop:"5%", backgroundColor:"#F5F5F5F5", paddingLeft:"40px", paddingRight:"1%"}}>
                     <div style={{display:"grid", justifyItems:"flex-start", gridTemplateColumns:"1fr 1fr", gap:"12px"}}>
