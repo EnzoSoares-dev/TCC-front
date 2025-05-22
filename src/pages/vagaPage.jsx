@@ -42,7 +42,7 @@ export const VagaPage = ()=>{
             <div style={{display:"flex", flexDirection:"row"}}>
                 <div style={{marginLeft:"12%", marginTop:"5%", backgroundColor:"#F5F5F5F5", paddingLeft:"40px", paddingRight:"20%"}}>
                     <h1>Candidatos:</h1>
-                    {vaga.candidatos.length> 0
+                    {vaga.candidatos && vaga.candidatos.length> 0
                     ?vaga.candidatos && vaga.candidatos.map((candidato,index)=>(
                         <div key={index}>
                             <h2>{candidato.nomeCandidato}</h2>
