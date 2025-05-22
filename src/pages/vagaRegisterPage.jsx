@@ -29,7 +29,7 @@ export const VagaRegisterPage = ()=>{
         try{
             const response = await postVaga(token.id,vagaObject,sessionStorage.getItem("token"));
             if(response.status === 200){
-                navigate(`/vaga/aberta/${response.data.id}`)
+                navigate(`/empresa`)
             }
         }catch(e){
 
