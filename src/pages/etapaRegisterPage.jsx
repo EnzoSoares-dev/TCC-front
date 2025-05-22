@@ -23,7 +23,7 @@ export const EtapaRegisterPage = () => {
         };
             const response = await postEtapa(idVaga, etapaObject, sessionStorage.getItem("token"));
             if (response.status === 200) {
-                navigate(-1);
+                navigate(`/vaga/aberta/${idVaga}`);
             }
     };
 
