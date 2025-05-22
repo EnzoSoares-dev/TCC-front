@@ -48,7 +48,7 @@ export const EtapaRegisterPage = () => {
                     <br/>
                     <div style={{gap:"20px",display:"flex"}}>
                         <Primary onClick={()=>{handleCreateEtapa()}} content={"Criar Etapa"}/>
-                        <Secondary onClick={() => navigate(`/vaga/aberta/${idVaga}`)} content={"Voltar"}/>
+                        <Secondary onClick={() => navigate(`/empresa`)} content={"Voltar"}/>
                     </div>
                 </div>
             </StyledLoginDiv>
