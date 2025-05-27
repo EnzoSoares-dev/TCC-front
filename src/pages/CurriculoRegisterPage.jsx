@@ -138,12 +138,13 @@ export const CurriculoRegisterPage = () => {
                 certificados: certificados
             }
         }
-        if(encontrarCamposInvalidos(curriculo).length === 0){
+        const curriuloValidado = encontrarCamposInvalidos(curriculo);
+        if(curriuloValidado.length === 0){
             try{
                 const response = await updateCandidato(token.id,curriculo,sessionStorage.getItem("token"));
                 if(response.status === 200){
                     console.log("Curriculo atualizado com sucesso")
-                    navigate(-1)
+                    navigate(`/candidato`)
                 }
             }catch(e){}
         }else{
@@ -154,13 +155,17 @@ export const CurriculoRegisterPage = () => {
 
     function encontrarCamposInvalidos(curriculo) {
     const camposInvalidos = [];
+    console.log(curriculo)
 
-    if (!curriculo?.curriculo?.[0]) {
+    if (curriculo?.curriculo?.idiomas.length===0 ||
+        curriculo?.curriculo?.experiencias.length===0 || 
+        curriculo?.curriculo?.certificados.length===0) {
         camposInvalidos.push("Estrutura principal do currículo inválida");
+        console.log(camposInvalidos)
         return camposInvalidos;
     }
 
-    const curriculum = curriculo.curriculo[0];
+    const curriculum = curriculo.curriculo;
 
     // Verifica idiomas
     if (curriculum.idiomas) {
@@ -188,7 +193,7 @@ export const CurriculoRegisterPage = () => {
             if (!cert.data_emissao) camposInvalidos.push(`certificados[${index}].data_emissao`);
         });
     }
-
+    console.log(camposInvalidos);
     return camposInvalidos;
 }
 
