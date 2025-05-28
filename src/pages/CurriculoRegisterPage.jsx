@@ -182,6 +182,7 @@ export const CurriculoRegisterPage = () => {
             if (!exp.cargo) camposInvalidos.push(`experiencias[${index}].cargo`);
             if (!exp.descricao) camposInvalidos.push(`experiencias[${index}].descricao`);
             if (!exp.data_inicio) camposInvalidos.push(`experiencias[${index}].data_inicio`);
+            if (!exp.data_final) camposInvalidos.push(`experiencias[${index}].data_final`);
         });
     }
 
