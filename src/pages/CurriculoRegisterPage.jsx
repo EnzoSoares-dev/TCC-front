@@ -207,7 +207,9 @@ export const CurriculoRegisterPage = () => {
 
     return (
         <div>
-            <h1>Cadastro de Curriculo</h1>
+            <div style={{marginLeft: "10%", marginTop: "5%", display: "flex", flexDirection: "column", gap: "10%", width: "79vw",backgroundColor:"#F5F5F5F5"}}>
+                <h1>Cadastro de Curriculo</h1>
+            </div>
             <StyledLoginDiv style={{marginLeft: "10%", marginTop: "5%", marginRight: "10%"}}>
                 <form style={{ display: "flex", flexDirection: "column", gap: "10%", width: "100%",backgroundColor:"#F5F5F5F5"}}>
                     <div style={{backgroundColor:"#F5F5F5F5", paddingRight:"5%",paddingLeft:"5%"}}>
