@@ -36,7 +36,6 @@ export const Modal = ({id, vaga, idCandidato, nomeCandidato, idVaga}) => {
         <dialog id={id} style={{width:"50%", height:"50%", borderRadius:"10px", padding:"20px", backgroundColor:"#F5F5F5F5"}}>
             <button style={{marginRight:"60%"}} onClick={()=>{modalOpen.close()}}>X</button>
             <div>
-                <h1>{idVaga}</h1>
                 <h1>{vaga.nomeEmpresa}</h1>
                 <h1>{vaga.nome}</h1>
                 <h2>{vaga.descricao}</h2>
