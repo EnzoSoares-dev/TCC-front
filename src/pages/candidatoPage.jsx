@@ -88,9 +88,9 @@ export const CandidatoPage = () => {
                         </div>
                     ))}
                 </div>
-                <div style={{display:"flex", marginTop:"5%", marginRight:"12%", backgroundColor:"#F5F5F5F5", paddingRight:"5%", paddingLeft:"5%"}}>
+                <div style={{ marginTop:"5%", marginRight:"12%", backgroundColor:"#F5F5F5F5", paddingRight:"5%", paddingLeft:"5%"}}>
                     {vagas.length >0
-                    ?<div>
+                    ?<div style={{display:"flex",flexDirection:"row"}}>
                         <div>
                             <h1>Vagas inscritas</h1>
                             {vagas && vagas.map((vaga, index) => {
