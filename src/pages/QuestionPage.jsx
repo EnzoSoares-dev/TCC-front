@@ -19,7 +19,6 @@ export const QuestionPage = () => {
         setRespostas(prevRespostas => {
             // Cria uma cópia do array de respostas
             const novasRespostas = [...prevRespostas];
-            
             // Verifica se já está selecionado (toggle)
             if (novasRespostas[index] === resposta) {
                 novasRespostas[index] = ""; // Desmarca
@@ -69,11 +68,11 @@ export const QuestionPage = () => {
                                 return (
                                     <div key={indice}>
                                         <input 
-                                            checked={respostas[index] === alternativa.resposta} 
+                                            checked={respostas[index].resposta === alternativa.resposta} 
                                             type="radio" 
                                             name={`questao-${index}`} // Nome único por questão
                                             value={alternativa.resposta} 
-                                            onChange={(e) => handleResposta(e.target.value, index)}
+                                            onChange={(e) => handleResposta({resposta: e.target.value, certa: alternativa.certa}, index)}
                                         />
                                         <label>{alternativa.resposta}</label>
                                     </div>
