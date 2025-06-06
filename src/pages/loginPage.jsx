@@ -35,7 +35,7 @@ export const LoginPage = ()=>{
                     navigate("/candidato")
                 }
             }catch(e){
-                alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
+                alert("Email/senha incorretos. Tente novamente.")
                 window.location.reload();
             }
         }else{
@@ -46,7 +46,7 @@ export const LoginPage = ()=>{
                     navigate("/candidato")
                 }
             }catch(e){
-                alert("Ocorreu um erro ao tentar logar, tente novamente mais tarde")
+                alert("Email/senha incorretos. Tente novamente.")
                 window.location.reload();
             }
         }
