@@ -32,7 +32,7 @@ export const LoginPage = ()=>{
                 const response = await loginEmpresa(email, password);
                 if(response.status === 200){
                     sessionStorage.setItem("token",response.data.token);
-                    navigate("/candidato")
+                    navigate("/empresa")
                 }
             }catch(e){
                 alert("Email/senha incorretos. Tente novamente.")
